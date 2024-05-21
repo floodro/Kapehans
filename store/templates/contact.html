@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kapehans - Contact Us</title>
+
+  <link rel="stylesheet" href="{% static "css/contact.css" %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <section class="header">
+      <nav>
+          <a href="index.html"><img src="/Website practice/Real Phone/2/Images/Kapehans-logo.png" alt=""></a>
+          <div class="nav-links" id="navLinks">
+              <ul>
+                <li><a href="{% url "landing" %}"> Home </a></li>
+                <li><a href="{% url "about" %}"> About </a></li>
+                <li><a href="{% url "store" %}"> Menu </a></li>
+                <li><a href="{% url "reviews" %}"> Reviews </a></li>
+                <li><a href="{% url "contact" %}"> Contact </a></li>
+
+                <div class="center">
+                    <button id="show-login"> Login </button>
+                </div>    
+              </ul>
+          </div>
+      </nav>
+
+      <div class="popup">
+          <div class="close-btn">&times;</div>
+            <div class="form">
+              <form method="POST">
+                <h2>Log in</h2>
+
+                <div class="form-element">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" placeholder="Enter email">
+                </div>
+
+                <div class="form-element">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter password">
+                </div>
+
+                <div class="form-element">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+
+                <div class="form-element">
+                    <button type="button">Sign in</button>
+                </div>
+              </form>
+
+              <div>
+                <div class="form-element">
+                  <a href="#">Don't have an account yet?</a>
+                </div>
+
+                <div class="form-element">
+                  <a href="#">Forgot password?</a>
+                </div>
+              </div>
+          </div>
+      </div>        
+  </div>
+</div>
+</header>
+ 
+    <div class="bgImage">
+      <div class="overlay">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you! Fill out the form below to send us a message.</p>
+        <form id="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <br>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <br>
+          <button type="submit">Send Message</button>
+        </form>
+        <div id="message-sent"></div>
+      </div>
+      </div>
+  </div>
+
+  <!--Footer-->
+
+<section class="footer">
+  <h4>About Us</h4>
+  <p>Indulge in the rich aroma and bold flavors of Kapehans, where every cup tells a story of passion and craftsmanship. <br> Join us in our cozy haven, where every sip is a journey into the heart of coffee culture.
+  </p>
+
+  <div class="icons">
+      <a href="https://www.facebook.com/profile.php?id=61552153922794" target="_blank"> <i hre class="fa fa-facebook"></i></a>
+      <a href="https://www.instagram.com/_kapehans?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"> <i class="fa fa-instagram"></i></a>
+      <i class="fa fa-linkedin"></i>
+      <i class="fa fa-whatsapp"></i>
+      <i class="fa fa-twitter"></i>
+  </div>
+</section>
+
+
+<script src="contact.js"></script>
+</body>
+</html>

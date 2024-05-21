@@ -1,0 +1,158 @@
+*{
+margin: 0;
+padding: 0;
+font-family: Roboto,Arial;
+}
+
+.store-title{
+background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(Images/Vicas.jpg);
+background-position: center;
+background-size: cover;
+color: antiquewhite;
+display: block;
+right: 0;
+left: 0;
+text-align: center;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+.store-title img{
+    height: 200px;
+}
+
+.store-title h1{
+font-weight: 600;
+margin-bottom: 10px;
+font-size: 100px;
+}
+
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(to right, antiquewhite, white);
+}
+.container {
+max-width: 800px;
+margin: 20px auto;
+background-color: #fff;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+display: flex; /* Added */
+flex-wrap: wrap; /* Added */
+gap: 20px; /* Added */
+}
+.coffee {
+flex: 1 1 calc(33.33% - 20px); /* Adjusted */
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 20px;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+margin-bottom: 20px;
+}
+h2 {
+margin-top: 0;
+}
+select {
+padding: 8px;
+font-size: 16px;
+}
+button {
+padding: 5px 10px;
+font-size: 14px;
+background-color: black;
+color: white;
+border: none;
+border-radius: 15px;
+cursor: pointer;
+font-weight: 600;
+font-size: 15px;
+}
+button:hover {
+background-color: antiquewhite;
+color: black;
+}
+.cart {
+border: 1px solid #ddd;
+padding: 10px;
+border-radius: 4px;
+margin-top: 20px;
+flex-basis: 100%; /* Added */
+}
+.cart-item {
+margin-bottom: 10px;
+}
+.cart-total {
+font-weight: bold;
+margin-top: 10px;
+}
+.checkout-btn {
+margin-top: 10px;
+}
+.drink-picture {
+width: 100px;
+height: 100px;
+margin-bottom: 10px;
+}
+.drink-picture img {
+height: 100%;
+width: 100%;
+}
+
+.drink-type {
+display: inline-block;
+font-weight: 600;
+font-size: 50px;
+height: 50px;
+width: 500px;
+}
+
+/*-------Navigations------*/
+.nav-links {
+flex: 1;
+text-align: center;
+margin-top: 20px;
+}
+
+.nav-links ul li {
+list-style: none;
+display: inline-block;
+padding: 8px 12px;
+position: relative;
+}
+
+.nav-links ul li a{
+color: antiquewhite;
+text-decoration: none;
+font-size: 20px;
+font-weight: 600;
+}
+
+.nav-links ul li::after {
+content: '';
+width: 0%;
+height: 2px;
+background-color: antiquewhite;
+display: block;
+margin: auto;
+transition: 0.5s;
+}
+
+.nav-links ul li:hover::after {
+width: 100%;
+
+}
+
+.coffee-image {
+width: 100%;
+height: 100%;
+}
+
+.coffee-picture-div {
+height: 120px;
+width: 120px;
+
+}

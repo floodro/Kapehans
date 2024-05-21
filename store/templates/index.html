@@ -1,0 +1,222 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with-device-width, initial-scale=1.0">
+    <title> Kapehans - Coffee Shop </title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="/Website practice/Real Phone/2/Images/Kapehans-logo.png" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="{% url "landing" %}"> Home </a></li>
+                    <li><a href="{% url "about" %}"> About </a></li>
+                    <li><a href="{% url "store" %}"> Menu </a></li>
+                    <li><a href="{% url "reviews" %}"> Reviews </a></li>
+                    <li><a href="{% url "contact" %}"> Contact </a></li>
+                    <div class="center">
+                        <button id="show-login"> Login </button>
+                    </div>    
+                    
+                </ul>
+              
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="popup">
+            <div class="close-btn">&times;</div>
+            <div class="form">
+                <form method="POST">
+                    <h2>Log in</h2>
+                    <div class="form-element">
+                        <label for="email"> Email </label>
+                        <input type="text" id="email" placeholder="Enter email address:" name="email">
+                    </div>
+                
+                    <div class="form-element">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter password" name="password">
+                    </div>
+
+                    <div class="form-element">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me"> Remember me </label>
+                    </div>
+
+                    <div class="form-element">
+                        <button type="submit"> Sign in </button>
+                    </div>
+
+                    <div>
+                        <div class="form-element">
+                            <a href="#"> Don't have an account yet? </a>
+                        </div>
+                        <div class="form-element">
+                            <a href="#"> Forgot password? </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>        
+
+<div class="bgImage">
+    <div class="overlay"></div>
+    <div class="text-box">
+        <h1> Awaken your senses with every sip. </h1>
+        <p>
+            Nestled in the heart of the city, our cozy ambiance invites 
+            you to unwind and savor the rich aroma of freshly brewed coffee. 
+        </p>
+        <a href="{% url "store" %}" class="order-btn"> Order now!</a>
+    </div>
+</div>
+</section>
+
+<section class="menu">
+    <h1> Our Menu </h1>
+    <p> Craving a caffeine fix? Kapehan's menu brews happiness with classic coffees, refreshing iced drinks, and delightful local favorites. </p>
+
+    <div class="row">
+        <div class="menu-col">
+            <h3> Matcha Latte </h3>
+            <p> Matcha Latte is a refreshing cold drink made from finely ground green tea leaves, typically mixed with milk or milk alternatives, known for its smooth texture and subtle, earthy flavor. </p>
+            <img src="{% static "images/matchalatte.jpg" %}" alt="">
+        </div>
+        
+        <div class="menu-col">
+            <h3> Iced Latte </h3>
+           <p> Iced Latte is a refreshing coffee drink made by pouring espresso or strong brewed coffee over ice and mixing it with milk or cream.</p>
+            <img src="{% static "images/Iced_Latte.jpg" %}" alt="">
+        </div>
+
+        <div class="menu-col">
+            <h3> Caramel Macchiato </h3>
+           <p> This exquisite beverage begins with a base of freshly brewed espresso, expertly layered with velvety steamed milk, creating a smooth and luxurious foundation.</p>
+            <img src="{% static "images/Caramel_Macchiato.jpg" %}" alt="">
+        </div>
+
+        <div class="menu-col">
+            <h3> Java Chip </h3>
+            <p> The Java Chip drink is a coffee-based blended beverage typically made with coffee, milk, ice, chocolate syrup, and chocolate chips.</p>
+            <img src="{% static "images/java-chip.jpg" %}" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="branch">
+    <h1>Our Branches</h1>
+    <p>Kapehans coffee shops offer a warm and inviting atmosphere to enjoy their delicious coffee creations. <br> Whether you prefer a classic cup of joe or a more adventurous iced concoction, their menu caters to all tastes.</p>
+
+    <div class="row">
+        <div class="branch-col">
+            <img src="{% static "images/Vicas.jpg" %}">
+
+            <div class="layer">
+                <h3> Vicas </h3>
+            </div>
+        </div>
+
+        <div class="branch-col">
+            <img src="{% static "images/branch cart.jpg" %}">
+            <div class="layer">
+                <h3> Fairview </h3>
+            </div>
+        </div>
+
+        <div class="branch-col">
+            <img src="{% static "images/soon branch.jpg" %}">
+            <div class="layer">
+                <h3> Katipunan </h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h1>What our customer says</h1>
+
+    <div class="row">
+
+        <div class="testimonial-col">
+            <img src="{% static "images/profile 1.jpg" %}">
+            <div>
+                <h3>Jose Antonio</h3>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <p>"Kapehans never disappoints! This local gem quickly became my favorite coffee shop.  Their beans are fresh and flavorful, and their baristas are true artists!  I tried the Ube Latte this morning, and it was a delightful surprise - creamy, sweet, and with the perfect hint of ube.  The shop itself is always clean and inviting, with a great vibe for relaxing or getting focused.  Love supporting local businesses, and Kapehans is definitely a keeper!"</p>
+            </div>
+        </div>
+        
+        <div class="testimonial-col">
+            <img src="{% static "images/profile 2.jpg" %}">
+            <div>
+                <h3>Alex Oliver</h3>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <p> "Hidden Gem! ☕️  I absolutely loved my experience at Kapehans! The staff were super friendly and helpful, recommending the perfect drink for my taste (shoutout to the Mocha Chip Frappuccino, it was incredible!). The atmosphere was warm and inviting, with comfy seating and great wifi – perfect for catching up with friends or getting some work done. Overall, 10/10 would recommend to anyone looking for a delicious coffee and a relaxing spot to unwind. I'll definitely be back soon!" </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h1>Savor the Brew, <br>Explore Our Cafés Today!</h1>
+    <a href="{% url "contact" %}" class="contact-us-btn">CONTACT US</a>
+</section>
+
+<section class="footer">
+    <h4>About Us</h4>
+    <p>Indulge in the rich aroma and bold flavors of Kapehans, where every cup tells a story of passion and craftsmanship. <br> Join us in our cozy haven, where every sip is a journey into the heart of coffee culture.
+    </p>
+
+    <div class="icons">
+        <a href="https://www.facebook.com/profile.php?id=61552153922794" target="_blank"> <i hre class="fa fa-facebook"></i></a>
+        <a href="https://www.instagram.com/_kapehans?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"> <i class="fa fa-instagram"></i></a>
+        <i class="fa fa-linkedin"></i>
+        <i class="fa fa-whatsapp"></i>
+        <i class="fa fa-twitter"></i>
+    </div>
+
+</section>
+
+
+<!-----JavaScript for Toggle Menu----->
+<script>
+     document.querySelector("#show-login").addEventListener("click", function(){
+        document.querySelector(".popup").classList.add("active");
+    });
+    document.querySelector(".popup .close-btn") .addEventListener("click" , function(){
+        document.querySelector(".popup").classList.remove("active");
+    });
+
+    var navLinks = document.getElementById("navLinks")
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+
+</script>
+
+</body>
+
+</html>
