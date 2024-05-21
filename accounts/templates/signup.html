@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with-device-width, initial-scale=1.0">
+    <title> Signup </title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <div class="signup-form">
+        <h2>Sign Up</h2>
+        <form method="POST" action="{% url "signup" %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="form-element">
+                <label for="Email"> Email </label>
+                <input type="text" id="email" placeholder="Enter email:" name="email">
+            </div>
+
+            <div class="form-element">
+                <label for="phone_number"> Phone Number </label>
+                <input type="text" id="phone_number" placeholder="Enter phone number:" name="phone_number">
+            </div>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>

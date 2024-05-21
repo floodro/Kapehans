@@ -36,11 +36,12 @@
         <div class="popup">
             <div class="close-btn">&times;</div>
             <div class="form">
-                <form method="POST">
+                <form method="POST" action="{% url "login" %}">
+                    {% csrf_token %}
                     <h2>Log in</h2>
                     <div class="form-element">
-                        <label for="email"> Email </label>
-                        <input type="text" id="email" placeholder="Enter email address:" name="email">
+                        <label for="username"> Username </label>
+                        <input type="text" id="username" placeholder="Enter username:" name="username">
                     </div>
                 
                     <div class="form-element">
@@ -59,7 +60,7 @@
 
                     <div>
                         <div class="form-element">
-                            <a href="#"> Don't have an account yet? </a>
+                            <a href="{% url "signup" %}"> Don't have an account yet? </a>
                         </div>
                         <div class="form-element">
                             <a href="#"> Forgot password? </a>
@@ -195,8 +196,7 @@
 
 </section>
 
-
-<!-----JavaScript for Toggle Menu----->
+<!--JavaScript for Toggle Menu-->
 <script>
      document.querySelector("#show-login").addEventListener("click", function(){
         document.querySelector(".popup").classList.add("active");
@@ -213,10 +213,6 @@
     function hideMenu(){
         navLinks.style.right = "-200px";
     }
-
-
 </script>
-
 </body>
-
 </html>

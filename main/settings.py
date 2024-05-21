@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'opera',
-        'USER': 'vsync',
-        'PASSWORD': 'operadata',
-        'HOST': 'opera.cbemo80wibjb.ap-southeast-2.rds.amazonaws.com',
+        'NAME': 'kapehans',
+        'USER': 'admin',
+        'PASSWORD': 'kapehansdata',
+        'HOST': 'kapehans-db.cbemo80wibjb.ap-southeast-2.rds.amazonaws.com',
         'PORT': 3306,
     }
 }
