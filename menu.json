@@ -1,0 +1,236 @@
+{
+    "Menu": {
+      "Kapehans Cafe": {
+        "COFFEE BASED DRINKS": {
+          "Cold": [
+            {
+              "name": "Spanish Latte",
+              "prices": {
+                "Tall": 55,
+                "Grande": 75,
+                "Venti": 85
+              }
+            },
+            {
+              "name": "Vanilla Latte",
+              "prices": {
+                "Tall": 55,
+                "Grande": 75,
+                "Venti": 85
+              }
+            },
+            {
+              "name": "Double French Vanilla Latte",
+              "prices": {
+                "Tall": 59,
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Mocha Latte",
+              "prices": {
+                "Tall": 59,
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Double Mocha Latte",
+              "prices": {
+                "Tall": 59,
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "White Mocha Latte",
+              "prices": {
+                "Tall": 59,
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Toffeenut Latte",
+              "prices": {
+                "Tall": 55,
+                "Grande": 75,
+                "Venti": 85
+              }
+            },
+            {
+              "name": "Hazelnut Latte",
+              "prices": {
+                "Tall": 55,
+                "Grande": 75,
+                "Venti": 85
+              }
+            },
+            {
+              "name": "Caramel Macchiato",
+              "prices": {
+                "Tall": 59,
+                "Grande": 79,
+                "Venti": 89
+              }
+            }
+          ],
+          "Hot": [
+            {
+              "name": "Espresso",
+              "prices": {
+                "Grande": 45
+              }
+            },
+            {
+              "name": "Doppio",
+              "prices": {
+                "Grande": 50
+              }
+            },
+            {
+              "name": "Latte",
+              "prices": {
+                "Grande": 55,
+                "Venti": 65
+              }
+            },
+            {
+              "name": "Flat White",
+              "prices": {
+                "Grande": 55,
+                "Venti": 65
+              }
+            },
+            {
+              "name": "Americano",
+              "prices": {
+                "Grande": 55,
+                "Venti": 65
+              }
+            },
+            {
+              "name": "Capuccino",
+              "prices": {
+                "Grande": 55,
+                "Venti": 65
+              }
+            },
+            {
+              "name": "Arabica Latte",
+              "prices": {
+                "Grande": 59,
+                "Venti": 69
+              }
+            },
+            {
+              "name": "Macadamia Latte",
+              "prices": {
+                "Grande": 59,
+                "Venti": 69
+              }
+            },
+            {
+              "name": "Caramel Latte",
+              "prices": {
+                "Grande": 59,
+                "Venti": 69
+              }
+            },
+            {
+              "name": "Butterscotch Latte",
+              "prices": {
+                "Grande": 59,
+                "Venti": 69
+              }
+            }
+          ]
+        },
+        "NON-COFFEE BASED DRINKS": {
+          "Cold": [
+            {
+              "name": "Choco",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Matcha Latte",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Strawberry",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Blueberry",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "White Chocolate",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Mango",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "Matcha Strawberry",
+              "prices": {
+                "Grande": 89,
+                "Venti": 99
+              }
+            },
+            {
+              "name": "Caramel Mango",
+              "prices": {
+                "Grande": 89,
+                "Venti": 99
+              }
+            }
+          ],
+          "Hot": [
+            {
+              "name": "Milk",
+              "prices": {
+                "Grande": 45,
+                "Venti": 55
+              }
+            },
+            {
+              "name": "Choco",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            },
+            {
+              "name": "White Chocolate",
+              "prices": {
+                "Grande": 79,
+                "Venti": 89
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+  

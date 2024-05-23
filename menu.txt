@@ -1,0 +1,43 @@
+Menu - Kapehans Cafe
+
+COFFEE BASED DRINKS:
+
+Cold:
+1. Spanish Latte (Tall - 55, Grande - 75, Venti - 85)
+2. Vanilla Latte (Tall - 55, Grande - 75, Venti - 85)
+3. Double French Vanilla Latte (Tall - 59, Grande - 79, Venti - 89)
+4. Mocha Latte (Tall - 59, Grande - 79, Venti - 89)
+5. Double Mocha Latte (Tall - 59, Grande - 79, Venti - 89)
+6. White Mocha Latte (Tall - 59, Grande - 79, Venti - 89)
+7. Toffeenut Latte (Tall - 55, Grande - 75, Venti - 85)
+8. Hazelnut Latte (Tall - 55, Grande - 75, Venti - 85)
+9. Caramel Macchiato (Tall - 59, Grande - 79, Venti - 89)
+
+Hot:
+1. Espresso (Grande - 45)
+2. Doppio (Grande - 50)
+3. Latte (Grande - 55, Venti - 65)
+4. Flat White (Grande - 55, Venti - 65)
+5. Americano (Grande - 55, Venti - 65)
+6. Capuccino (Grande - 55, Venti - 65)
+7. Arabica Latte (Grande - 59, Venti - 69)
+8. Macadamia Latte (Grande - 59, Venti - 69)
+9. Caramel Latte (Grande - 59, Venti - 69)
+10. Butterscotch Latte (Grande - 59, Venti - 69)
+
+NON-COFFEE BASED DRINKS:
+
+Cold:
+1. Choco (Grande - 79, Venti - 89)
+2. Matcha Latte (Grande - 79, Venti - 89)
+3. Strawberry (Grande - 79, Venti - 89)
+4. Blueberry (Grande - 79, Venti - 89)
+5. White Chocolate (Grande - 79, Venti - 89)
+6. Mango (Grande - 79, Venti - 89)
+7. Matcha Strawberry (Grande - 89, Venti - 99)
+8. Caramel Mango (Grande - 89, Venti - 99)
+
+Hot:
+1. Milk (Grande - 45, Venti - 55)
+2. Choco (Grande - 79, Venti - 89)
+3. White Chocolate (Grande - 79, Venti - 89)
