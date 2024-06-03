@@ -119,7 +119,7 @@ nav img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .card {
@@ -129,12 +129,14 @@ nav img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 0;
     background: linear-gradient(antiquewhite, white);
 }
 
 .card-content {
-    width: 100%;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
 }
 
@@ -270,4 +272,50 @@ nav img {
 
 #checkoutBtn:hover {
     background-color: #f7caaf;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .item-image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links ul {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .nav-links ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .item-image {
+        width: 100%;
+        height: auto;
+    }
 }

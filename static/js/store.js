@@ -1,21 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-const cartModal = document.getElementById('cartModal');
-const viewCartBtn = document.getElementById('viewCartBtn');
-const closeModalBtn = document.querySelector('.close');
-const cartTableBody = document.querySelector('#cartTable tbody');
-const totalPriceElement = document.getElementById('totalPrice');
+// JavaScript for handling the cart modal and adding items to the cart
 
-    viewCartBtn.addEventListener('click', () => {
-        cartModal.style.display = 'block';
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    var cartModal = document.getElementById("cartModal");
+    var viewCartBtn = document.getElementById("viewCartBtn");
+    var closeBtn = document.getElementsByClassName("close")[0];
 
-    closeModalBtn.addEventListener('click', () => {
-        cartModal.style.display = 'none';
-    });
+    viewCartBtn.onclick = function() {
+        cartModal.style.display = "block";
+    }
 
-    window.addEventListener('click', (event) => {
+    closeBtn.onclick = function() {
+        cartModal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
         if (event.target == cartModal) {
-            cartModal.style.display = 'none';
+            cartModal.style.display = "none";
         }
-    })
-})
+    }
+
+    document.querySelectorAll('.add-to-cart-form').forEach(form => {
+        form.onsubmit = function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': formData.get('csrfmiddlewaretoken')
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                updateCartModal();
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
+});
+
+function updateCartModal() {
+    fetch('/cart/')
+        .then(response => response.text())
+        .then(html => {
+            document.querySelector('.modal-content').innerHTML = html;
+        });
+}
