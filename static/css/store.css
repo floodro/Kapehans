@@ -319,3 +319,31 @@ nav img {
         height: auto;
     }
 }
+
+#messages {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.message.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border-color: #ebccd1;
+}
+
+.message.info {
+    background-color: #d9edf7;
+    color: #31708f;
+    border-color: #bce8f1;
+}

@@ -6,6 +6,6 @@ app_name = 'orders'  # Define the namespace
 urlpatterns = [
     path('add-to-cart/', views.addToCart, name='addToCart'),
     path('view-cart/', views.viewCart, name='viewCart'),
-    #path('remove-from-cart/', views.remove_from_cart, name='removeFromCart'),
+    path('remove-from-cart/<int:item_id>/', views.removeFromCart, name='removeFromCart'),
     #path('', views.store, name='store')''',
 ]

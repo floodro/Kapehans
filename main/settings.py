@@ -88,8 +88,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'kapehans',
         'USER': 'admin',
-        'PASSWORD': 'kapehansdata',
-        'HOST': 'kapehans-db.cbemo80wibjb.ap-southeast-2.rds.amazonaws.com',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
         'PORT': 3306,
     }
 }

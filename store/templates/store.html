@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Kapehans - Ordering System </title>
     <link rel="stylesheet" href="{% static 'css/store.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header class="header">
         <nav>
@@ -20,6 +22,7 @@
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'reviews' %}">Reviews</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'orders:viewCart' %}">Cart</a></li>
                     <li class="center">
                         <button id="show-login" onclick="location.href='{% url 'logoutCustomer' %}'">Logout</button>
                     </li>    
@@ -32,12 +35,19 @@
     <main class="menu-container">
         <header class="menu-header">
             <form action='{% url 'orders:viewCart' %}'>
-                <h1>Our Menu <button class="view-cart-btn" id="viewCartBtn">View Cart</button></h1>
+                <h1>Our Menu </h1>
             </form>
         </header>
 
         <section class="menu-section">
             <h2>Coffee Based Drinks</h2>
+            {% if messages %}
+            <div id="messages">
+                {% for message in messages %}
+                <div class="message {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
             <div class="cards-container">
                 <div class="card">
                     <div class="card-content">
@@ -46,7 +56,7 @@
                             <input type="hidden" name="item_name" value="Spanish Latte">
                             <h2 class="item-name"> Spanish Latte </h2>
                             
-                            <img src="{% static 'images/menu/vanilla-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
+                            <img src="{% static 'images/menu/spanish-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
                             
                             <p class="item-price">Price - ₱55.00</p>
                             <input type="hidden" name="item_price" value="55.00">
@@ -57,25 +67,29 @@
                 
                 <div class="card">
                     <div class="card-content">
-                        <h2 class="item-name"> Vanilla Latte </h2>
-                        <img src="{% static 'images/menu/spanish-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
-                        <p class="item-price">Price - ₱55.00</p>
-                        <form method="post" class="add-to-cart-form">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
                             <input type="hidden" name="item_name" value="Vanilla Latte">
+                            <h2 class="item-name"> Vanilla Latte </h2>
+                        
+                            <img src="{% static 'images/menu/vanilla-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
+                        
+                            <p class="item-price">Price - ₱55.00</p>
                             <input type="hidden" name="item_price" value="55.00">
+
                             <button type="submit" class="add-to-cart-btn">Add to Cart</button>
                         </form>
                     </div>
                 </div>
-
+                
                 <div class="card">
                     <div class="card-content">
                         <form method="POST" class="add-to-cart-form" action="orders:addToCart">
                             {% csrf_token %}
-                            <h2 class="item-name"> Mocha Latte </h2>
                             <input type="hidden" name="item_name" value="Mocha Latte">
+                            <h2 class="item-name"> Mocha Latte </h2>
 
-                            <img src="{% static 'images/menu/mocha-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
+                            <img src="{% static 'images/menu/mocha-latte.jpg' %}" class="item-image" alt="Mocha Latte - Tall">
           
                             <p class="item-price">Price - ₱59.00</p>
                             <input type="hidden" name="item_price" value="59.00">
@@ -84,36 +98,21 @@
                         </form>
                     </div>
                 </div>
-
-
-
                 
             </div>
             <!-- More cards containers here... -->
         </section>
     </main>
-
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Your Cart</h2>
-            <table id="cartTable">
-                <tbody>
-                    <thead>
-                        <tr>
-                            <th> Name </th>
-                            <th> Price </th>
-                            <th> Quantity </th>
-                            <th> Total </th>
-                        </tr>
-                    </thead>
-                </tbody>
-            </table>
-            <p id="totalPrice">Total: ₱0.00</p>
-            <button id="checkoutBtn"> Checkout </button>
-        </div>
-    </div>
-
-    <script src="{% static 'js/store.js' %}"></script>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const messages = document.getElementById('messages');
+        if (messages) {
+            setTimeout(function() {
+                messages.style.display = 'none';
+            }, 1000); // Adjust the time as needed
+        }
+    });
+</script>
 </body>
 </html>
