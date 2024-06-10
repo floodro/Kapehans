@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -10,10 +12,11 @@ class Product(models.Model):
 
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
+    quantity = models.PositiveIntegerField(default=1)
 
     def get_total(self):
-        return self.quantity * self.product.price
+        total = self.quantity * self.product.price
+        return total
 
     def __str__(self):
         return f'{self.quantity} of {self.product.name}'
@@ -32,7 +35,10 @@ class CartItemInCart(models.Model):
     quantity = models.PositiveIntegerField(default=1)
 
     def get_total(self):
-        return self.quantity * self.cart_item.get_total()
+        return self.cart_item.get_total()
 
     def __str__(self):
         return f'{self.quantity} of {self.cart_item}'
+
+    def update_total(self):
+        return self.cart_item.get_total() - self.cart_item.product.price

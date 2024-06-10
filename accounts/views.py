@@ -14,7 +14,7 @@ def loginCustomer(request):
         if user is not None:
             login(request, user)
             print("Login successful!")
-            return redirect("store")
+            return redirect("menu")
         else:
             messages.error(request, "Invalid username or password")
 

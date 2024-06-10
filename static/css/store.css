@@ -130,7 +130,7 @@ nav img {
     flex-direction: column;
     align-items: center;
     padding: 0;
-    background: linear-gradient(antiquewhite, white);
+    background: antiquewhite;
 }
 
 .card-content {
@@ -143,6 +143,7 @@ nav img {
 .item-name {
     font-size: 1.2em;
     font-weight: bold;
+    margin-top: 10px;
     margin-bottom: 10px;
     color: #333;
 }
@@ -175,6 +176,7 @@ nav img {
 .add-to-cart-btn {
     padding: 10px;
     margin-left: 5px;
+    margin-bottom: 10px;
     background-color: #d2691e;
     color: #fff;
     border: none;

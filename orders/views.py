@@ -38,7 +38,8 @@ def viewCart(request):
 def removeFromCart(request, item_id):
     cart_item_in_cart = get_object_or_404(CartItemInCart, id=item_id)
     cart_item_in_cart.cart.items.remove(cart_item_in_cart.cart_item) 
-    cart_item_in_cart.cart_item.delete()  
+    cart_item_in_cart.cart_item.delete()
+      
     cart_item_in_cart.delete()  
 
     return redirect('orders:viewCart')

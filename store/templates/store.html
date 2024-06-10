@@ -36,25 +36,28 @@
         <header class="menu-header">
             <form action='{% url 'orders:viewCart' %}'>
                 <h1>Our Menu </h1>
+
+                {% if messages %}
+                    <div id="messages">
+                        {% for message in messages %}
+                            <div class="message {{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </form>
         </header>
 
         <section class="menu-section">
             <h2>Coffee Based Drinks</h2>
-            {% if messages %}
-            <div id="messages">
-                {% for message in messages %}
-                <div class="message {{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-            </div>
-            {% endif %}
+            
+
             <div class="cards-container">
                 <div class="card">
                     <div class="card-content">
                         <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
                             {% csrf_token %}
-                            <input type="hidden" name="item_name" value="Spanish Latte">
-                            <h2 class="item-name"> Spanish Latte </h2>
+                            <input type="hidden" name="item_name" value="Spanish Latte - Tall">
+                            <h2 class="item-name"> Spanish Latte - Tall</h2>
                             
                             <img src="{% static 'images/menu/spanish-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
                             
@@ -64,15 +67,47 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Spanish Latte - Venti">
+                            <h2 class="item-name"> Spanish Latte - Venti </h2>
+                            
+                            <img src="{% static 'images/menu/spanish-latte.jpg' %}" class="item-image" alt="Spanish Latte - Venti">
+                            
+                            <p class="item-price">Price - ₱75.00</p>
+                            <input type="hidden" name="item_price" value="75.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Spanish Latte - Grande">
+                            <h2 class="item-name"> Spanish Latte - Grande </h2>
+                            
+                            <img src="{% static 'images/menu/spanish-latte.jpg' %}" class="item-image" alt="Spanish Latte - Grande">
+                            
+                            <p class="item-price">Price - ₱85.00</p>
+                            <input type="hidden" name="item_price" value="85.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
                 
                 <div class="card">
                     <div class="card-content">
                         <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
                             {% csrf_token %}
-                            <input type="hidden" name="item_name" value="Vanilla Latte">
-                            <h2 class="item-name"> Vanilla Latte </h2>
+                            <input type="hidden" name="item_name" value="Vanilla Latte - Tall">
+                            <h2 class="item-name"> Vanilla Latte - Tall </h2>
                         
-                            <img src="{% static 'images/menu/vanilla-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
+                            <img src="{% static 'images/menu/vanilla-latte.jpg' %}" class="item-image" alt="Vanilla Latte - Tall">
                         
                             <p class="item-price">Price - ₱55.00</p>
                             <input type="hidden" name="item_price" value="55.00">
@@ -81,10 +116,44 @@
                         </form>
                     </div>
                 </div>
-                
+
                 <div class="card">
                     <div class="card-content">
-                        <form method="POST" class="add-to-cart-form" action="orders:addToCart">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Vanilla Latte - Venti">
+                            <h2 class="item-name"> Vanilla Latte - Venti</h2>
+                        
+                            <img src="{% static 'images/menu/vanilla-latte.jpg' %}" class="item-image" alt="Vanilla Latte - Venti">
+                        
+                            <p class="item-price">Price - ₱75.00</p>
+                            <input type="hidden" name="item_price" value="75.00">
+
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Vanilla Latte - Grande">
+                            <h2 class="item-name"> Vanilla Latte - Grande </h2>
+                        
+                            <img src="{% static 'images/menu/vanilla-latte.jpg' %}" class="item-image" alt="Vanilla Latte - Grande">
+                        
+                            <p class="item-price">Price - ₱85.00</p>
+                            <input type="hidden" name="item_price" value="85.00">
+
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!--div class="card">
+                    <div class="card-content">
+                        <form method="POST" class="add-to-cart-form" action="{% url 'orders:addToCart' %}">
                             {% csrf_token %}
                             <input type="hidden" name="item_name" value="Mocha Latte">
                             <h2 class="item-name"> Mocha Latte </h2>
@@ -97,11 +166,31 @@
                             <button type="submit" class="add-to-cart-btn">Add to Cart</button>
                         </form>
                     </div>
-                </div>
-                
+                </div-->   
             </div>
             <!-- More cards containers here... -->
         </section>
+
+        <section class="menu-section">
+            <h2>Non-coffee based Drinks</h2>
+            
+
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Spanish Latte - Tall">
+                            <h2 class="item-name"> Spanish Latte - Tall</h2>
+                            
+                            <img src="{% static 'images/menu/spanish-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
+                            
+                            <p class="item-price">Price - ₱55.00</p>
+                            <input type="hidden" name="item_price" value="55.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
     </main>
     
 <script>
@@ -110,7 +199,7 @@
         if (messages) {
             setTimeout(function() {
                 messages.style.display = 'none';
-            }, 1000); // Adjust the time as needed
+            }, 1000);
         }
     });
 </script>
