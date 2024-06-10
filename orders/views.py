@@ -34,12 +34,11 @@ def viewCart(request):
     total_price = sum(item.get_total() for item in cart_items)
     return render(request, 'cart.html', {'cart_items': cart_items, 'total_price': total_price})
 
+@login_required
 def removeFromCart(request, item_id):
     cart_item_in_cart = get_object_or_404(CartItemInCart, id=item_id)
-    
-    if cart_item_in_cart.quantity > 1:
-        cart_item_in_cart.quantity -= 1
-        cart_item_in_cart.save()
-    else:
-        cart_item_in_cart.delete()
+    cart_item_in_cart.cart.items.remove(cart_item_in_cart.cart_item)  # Remove the CartItem from the Cart
+    cart_item_in_cart.cart_item.delete()  # Delete the CartItem itself
+    cart_item_in_cart.delete()  # Delete the CartItemInCart relation
+
     return redirect('orders:viewCart')
