@@ -37,8 +37,8 @@ def viewCart(request):
 @login_required
 def removeFromCart(request, item_id):
     cart_item_in_cart = get_object_or_404(CartItemInCart, id=item_id)
-    cart_item_in_cart.cart.items.remove(cart_item_in_cart.cart_item)  # Remove the CartItem from the Cart
-    cart_item_in_cart.cart_item.delete()  # Delete the CartItem itself
-    cart_item_in_cart.delete()  # Delete the CartItemInCart relation
+    cart_item_in_cart.cart.items.remove(cart_item_in_cart.cart_item) 
+    cart_item_in_cart.cart_item.delete()  
+    cart_item_in_cart.delete()  
 
     return redirect('orders:viewCart')
