@@ -25,7 +25,7 @@ def addToCart(request):
             cart_item_in_cart.save()
         
         messages.success(request, f'{product.name} was added to your cart successfully!')
-        return render(request, "store.html")
+        return redirect("menu")
 
 @login_required
 def viewCart(request):

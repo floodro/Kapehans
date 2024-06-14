@@ -3,10 +3,10 @@ Menu - Kapehans Cafe
 COFFEE BASED DRINKS:
 
 Cold:
-1. Spanish Latte (Tall - 55, Grande - 75, Venti - 85)
-2. Vanilla Latte (Tall - 55, Grande - 75, Venti - 85)
-3. Double French Vanilla Latte (Tall - 59, Grande - 79, Venti - 89)
-4. Mocha Latte (Tall - 59, Grande - 79, Venti - 89)
+/ 1. Spanish Latte (Tall - 55, Grande - 75, Venti - 85)
+/ 2. Vanilla Latte (Tall - 55, Grande - 75, Venti - 85)
+/ 3. Double French Vanilla Latte (Tall - 59, Grande - 79, Venti - 89) 
+/ 4. Mocha Latte (Tall - 59, Grande - 79, Venti - 89)
 5. Double Mocha Latte (Tall - 59, Grande - 79, Venti - 89)
 6. White Mocha Latte (Tall - 59, Grande - 79, Venti - 89)
 7. Toffeenut Latte (Tall - 55, Grande - 75, Venti - 85)
@@ -28,8 +28,8 @@ Hot:
 NON-COFFEE BASED DRINKS:
 
 Cold:
-1. Choco (Grande - 79, Venti - 89)
-2. Matcha Latte (Grande - 79, Venti - 89)
+/ 1. Choco (Grande - 79, Venti - 89)
+/ 2. Matcha Latte (Grande - 79, Venti - 89)
 3. Strawberry (Grande - 79, Venti - 89)
 4. Blueberry (Grande - 79, Venti - 89)
 5. White Chocolate (Grande - 79, Venti - 89)

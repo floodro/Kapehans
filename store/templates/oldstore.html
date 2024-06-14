@@ -46,10 +46,9 @@
                 {% endif %}
             </form>
         </header>
-
+        
         <section class="menu-section">
             <h2>Coffee Based Drinks</h2>
-            
 
             <div class="cards-container">
                 <div class="card">
@@ -173,35 +172,108 @@
 
         <section class="menu-section">
             <h2>Non-coffee based Drinks</h2>
-            
 
             <div class="cards-container">
                 <div class="card">
                     <div class="card-content">
                         <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
                             {% csrf_token %}
-                            <input type="hidden" name="item_name" value="Spanish Latte - Tall">
-                            <h2 class="item-name"> Spanish Latte - Tall</h2>
+                            <input type="hidden" name="item_name" value="Choco - Grande">
+                            <h2 class="item-name"> Choco - Grande </h2>
                             
-                            <img src="{% static 'images/menu/spanish-latte.jpg' %}" class="item-image" alt="Spanish Latte - Tall">
+                            <img src="{% static 'images/menu/choco.jpg' %}" class="item-image" alt="Choco - Grande">
                             
-                            <p class="item-price">Price - ₱55.00</p>
-                            <input type="hidden" name="item_price" value="55.00">
+                            <p class="item-price">Price - ₱79.00</p>
+                            <input type="hidden" name="item_price" value="79.00">
                             <button type="submit" class="add-to-cart-btn">Add to Cart</button>
                         </form>
                     </div>
                 </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Choco - Venti">
+                            <h2 class="item-name"> Choco - Venti </h2>
+                            
+                            <img src="{% static 'images/menu/choco.jpg' %}" class="item-image" alt="Choco - Venti">
+                            
+                            <p class="item-price">Price - ₱79.00</p>
+                            <input type="hidden" name="item_price" value="79.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Matcha Latte - Grande">
+                            <h2 class="item-name"> Matcha Latte - Grande </h2>
+                            
+                            <img src="{% static 'images/menu/matcha-latte.jpg' %}" class="item-image" alt="Matcha Latte - Grande">
+                            
+                            <p class="item-price">Price - ₱79.00</p>
+                            <input type="hidden" name="item_price" value="79.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Matcha Latte - Venti">
+                            <h2 class="item-name"> Matcha Latte - Venti </h2>
+                            
+                            <img src="{% static 'images/menu/matcha-latte.jpg' %}" class="item-image" alt="Matcha Latte - Venti">
+                            
+                            <p class="item-price">Price - ₱79.00</p>
+                            <input type="hidden" name="item_price" value="79.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Strawberry - Grande">
+                            <h2 class="item-name"> Strawberry - Grande </h2>
+                            
+                            <img src="{% static 'images/menu/strawberry.png' %}" class="item-image" alt="Strawberry - Grande">
+                            
+                            <p class="item-price">Price - ₱79.00</p>
+                            <input type="hidden" name="item_price" value="79.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <form method="post" class="add-to-cart-form" action='{% url 'orders:addToCart' %}'>
+                            {% csrf_token %}
+                            <input type="hidden" name="item_name" value="Strawberry - Venti">
+                            <h2 class="item-name"> Strawberry - Venti </h2>
+                            
+                            <img src="{% static 'images/menu/strawberry.png' %}" class="item-image" alt="Strawberry - Venti">
+                            
+                            <p class="item-price">Price - ₱89.00</p>
+                            <input type="hidden" name="item_price" value="89.00">
+                            <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const messages = document.getElementById('messages');
-        if (messages) {
-            setTimeout(function() {
-                messages.style.display = 'none';
-            }, 1000);
-        }
-    });
+<script src="{% static 'js/store.js' %}"> </script>
 </script>
 </body>
 </html>
