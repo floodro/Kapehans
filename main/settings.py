@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dq_t)vu@)83k@l)wvh1&(&n@p%ljvt!da%+-kiz1_i-jt=#(_9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://kapehans-cafe.onrender.com"]
 
 
 # Application definition
@@ -43,11 +44,6 @@ INSTALLED_APPS = [
     'orders',
     'payments',
 ]
-
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
-
-CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,14 +80,11 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kapehans', #TABLE NAME
-        'USER': 'admin', #DATABASE ADMIN USERNAME
-        'PASSWORD': 'password', #DATABASE PASSWORD
-        'HOST': 'localhost', #HOSTNAME
-        'PORT': 3306, #DEFAULT PORT
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://kapehans_user:tmAfzGTIDmUbAbZTzaLDoqJhbniiN5FN@dpg-cpmuh808fa8c73aov580-a.singapore-postgres.render.com/kapehans',
+        conn_max_age=600
+    )
 }
 
 # Password validation
@@ -129,6 +122,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if not DEBUG:
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Additional locations of static files
 STATICFILES_DIRS = [

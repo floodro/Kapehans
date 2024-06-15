@@ -7,7 +7,7 @@ def landingPage(request):
 
 @login_required
 def storePage(request):
-    return render(request, "store_new.html", {})
+    return render(request, "store.html", {})
 
 def contactUs(request):
     return render(request, "contact.html", {})

@@ -28,8 +28,8 @@ Hot:
 NON-COFFEE BASED DRINKS:
 
 Cold:
-/ 1. Choco (Grande - 79, Venti - 89)
-/ 2. Matcha Latte (Grande - 79, Venti - 89)
+1. Choco (Grande - 79, Venti - 89)
+2. Matcha Latte (Grande - 79, Venti - 89)
 3. Strawberry (Grande - 79, Venti - 89)
 4. Blueberry (Grande - 79, Venti - 89)
 5. White Chocolate (Grande - 79, Venti - 89)

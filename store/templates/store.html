@@ -1,0 +1,677 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kapehans - Ordering System </title>
+    <link rel="stylesheet" href="{% static 'css/redesigned-store.css' %}">
+</head>
+
+<body>
+    <header class="header">
+        <nav>
+            <a href="{% url 'landing' %}">
+                <img src="{% static 'images/Kapehans-logo.png' %}" alt="Kapehans Logo">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="{% url 'landing' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'reviews' %}">Reviews</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'orders:viewCart' %}">Cart</a></li>
+                    <li class="center">
+                        <button id="show-login" onclick="location.href='{% url 'logoutCustomer' %}'">Logout</button>
+                    </li>    
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </header>
+
+    <!-- MESSAGES -->
+    {% if messages %}
+    <div id="messages">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <section class="menu-header"> 
+        <h1> Our Menu </h1>
+        <h3> Craving a caffeine fix? Kapehan's menu brews happiness with classic coffees, refreshing iced drinks, and delightful local favorites. </h3>
+    </section>
+    
+    <!-- CAROUSEL START -->
+    <section class="menu carousel-container">
+        <h2 class="title"> Coffee-based Drinks - Cold </h2>
+        <div class="carousel-inner">
+            <!-- FIRST ROW -->
+            <div class="carousel-item active">
+                <div class="menu-col">
+                    <h3> Spanish Latte - Tall </h3>
+                    <p> A rich and creamy coffee blend with a hint of sweetened condensed milk for a unique flavor twist. </p>
+                    <img src="{% static 'images/menu/spanish-latte.jpg' %}" alt="Spanish Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Spanish Latte - Tall">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Spanish Latte - Grande</h3>
+                    <p> A rich and creamy coffee blend with a hint of sweetened condensed milk for a unique flavor twist. </p>
+                    <img src="{% static 'images/menu/spanish-latte.jpg' %}" alt="Spanish Latte - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Spanish Latte - Grande">
+                        <h3> Price - ₱75.00 </h3>
+                        <input type="hidden" name="item_price" value="75.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Spanish Latte - Venti </h3>
+                    <p> A rich and creamy coffee blend with a hint of sweetened condensed milk for a unique flavor twist. </p>
+                    <img src="{% static 'images/menu/spanish-latte.jpg' %}" alt="Spanish Latte - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Spanish Latte - Venti">
+                        <h3> Price - ₱85.00 </h3>
+                        <input type="hidden" name="item_price" value="85.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Vanilla Latte - Tall </h3>
+                    <p> Classic espresso mixed with smooth steamed milk and vanilla syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/vanilla-latte.jpg' %}" alt="Vanilla Latte - Tall">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Vanilla Latte - Tall">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SECOND ROW -->
+            <div class="carousel-item active">
+                <div class="menu-col">
+                    <h3> Vanilla Latte - Grande</h3>
+                    <p> Classic espresso mixed with smooth steamed milk and vanilla syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/vanilla-latte.jpg' %}" alt="Vanilla Latte - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Vanilla Latte - Grande">
+                        <h3> Price - ₱75.00 </h3>
+                        <input type="hidden" name="item_price" value="75.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Vanilla Latte - Venti</h3>
+                    <p> Classic espresso mixed with smooth steamed milk and vanilla syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/vanilla-latte.jpg' %}" alt="Vanilla Latte - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Vanilla Latte - Venti">
+                        <h3> Price - ₱85.00 </h3>
+                        <input type="hidden" name="item_price" value="85.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Double French Vanilla Latte - Tall </h3>
+                    <p> A delightful combination of espresso, steamed milk, and extra French vanilla flavor. </p>
+                    <img src="{% static 'images/menu/soldout.jpg' %}" alt="Double French Vanilla Latte - Tall">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Double French Vanilla Latte - Tall">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Double French Vanilla Latte </h3>
+                    <p> A delightful combination of espresso, steamed milk, and extra French vanilla flavor. </p>
+                    <img src="{% static 'images/menu/soldout.jpg' %}" alt="">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Double French Vanilla Latte - Grande">
+                        <h3> Price - ₱79.00 </h3>
+                        <input type="hidden" name="item_price" value="79.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- THIRD ROW -->
+            <div class="carousel-item active">
+                <div class="menu-col">
+                    <h3> Double French Vanilla Latte - Venti </h3>
+                    <p> A delightful combination of espresso, steamed milk, and extra French vanilla flavor. </p>
+                    <img src="{% static 'images/menu/soldout.jpg' %}" alt="">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Double French Vanilla Latte - Venti">
+                        <h3> Price - ₱89.00 </h3>
+                        <input type="hidden" name="item_price" value="89.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Mocha Latte - Tall</h3>
+                    <p> Espresso combined with chocolate syrup and steamed milk, topped with whipped cream. </p>
+                    <img src="{% static 'images/menu/mocha-latte.jpg' %}" alt="Mocha Latte - Tall">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Mocha Latte - Tall">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Mocha Latte - Grande</h3>
+                    <p> Espresso combined with chocolate syrup and steamed milk, topped with whipped cream. </p>
+                    <img src="{% static 'images/menu/mocha-latte.jpg' %}" alt="Mocha Latte - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Mocha Latte - Grande">
+                        <h3> Price - ₱79.00 </h3>
+                        <input type="hidden" name="item_price" value="79.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Mocha Latte - Venti</h3>
+                    <p> Espresso combined with chocolate syrup and steamed milk, topped with whipped cream. </p>
+                    <img src="{% static 'images/menu/mocha-latte.jpg' %}" alt="Mocha Latte - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Mocha Latte - Venti">
+                        <h3> Price - ₱89.00 </h3>
+                        <input type="hidden" name="item_price" value="89.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FOURTH ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3> Double Mocha Latte - Grande</h3>
+                    <p> A double shot of espresso mixed with chocolate syrup and steamed milk, topped with extra whipped cream. </p>
+                    <img src="{% static 'images/menu/double-mocha-latte.jpg' %}" alt="Double Mocha Latte - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Double Mocha Latte - Grande">
+                        <h3> Price - ₱79.00 </h3>
+                        <input type="hidden" name="item_price" value="79.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Double Mocha Latte - Venti</h3>
+                    <p> A double shot of espresso mixed with chocolate syrup and steamed milk, topped with extra whipped cream. </p>
+                    <img src="{% static 'images/menu/double-mocha-latte.jpg' %}" alt="Double Mocha Latte - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Double Mocha Latte - Venti">
+                        <h3> Price - ₱89.00 </h3>
+                        <input type="hidden" name="item_price" value="89.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> White Mocha Latte - Tall</h3>
+                    <p> Smooth white chocolate syrup combined with espresso and steamed milk, topped with whipped cream. </p>
+                    <img src="{% static 'images/menu/white-mocha-latte.jpg' %}" alt="White Mocha Latte - Tall">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="White Mocha Latte - Tall">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> White Mocha Latte - Grande</h3>
+                    <p> Smooth white chocolate syrup combined with espresso and steamed milk, topped with whipped cream. </p>
+                    <img src="{% static 'images/menu/white-mocha-latte.jpg' %}" alt="White Mocha Latte - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="White Mocha Latte - Grande">
+                        <h3> Price - ₱79.00 </h3>
+                        <input type="hidden" name="item_price" value="79.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FIFTH ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3> White Mocha Latte - Venti</h3>
+                    <p> Smooth white chocolate syrup combined with espresso and steamed milk, topped with whipped cream. </p>
+                    <img src="{% static 'images/menu/white-mocha-latte.jpg' %}" alt="White Mocha Latte - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="White Mocha Latte - Venti">
+                        <h3> Price - ₱89.00 </h3>
+                        <input type="hidden" name="item_price" value="89.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Toffeenut Latte - Tall</h3>
+                    <p> A delightful blend of espresso, steamed milk, and toffee nut syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/toffeenut-latte.jpg' %}" alt="Toffeenut Latte - Tall">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Toffeenut Latte - Tall">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Toffeenut Latte - Grande</h3>
+                    <p> A delightful blend of espresso, steamed milk, and toffee nut syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/toffeenut-latte.jpg' %}" alt="Toffeenut Latte - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Toffeenut Latte - Grande">
+                        <h3> Price - ₱75.00 </h3>
+                        <input type="hidden" name="item_price" value="75.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Toffeenut Latte - Venti</h3>
+                    <p> A delightful blend of espresso, steamed milk, and toffee nut syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/toffeenut-latte.jpg' %}" alt="Toffeenut Latte - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Toffeenut Latte - Venti">
+                        <h3> Price - ₱85.00 </h3>
+                        <input type="hidden" name="item_price" value="85.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SIXTH ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3> Hazelnut Latte - Tall</h3>
+                    <p> Rich espresso with steamed milk and hazelnut syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/hazelnut-latte.jpg' %}" alt="Hazelnut Latte - Tall">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Hazelnut Latte - Tall">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Hazelnut Latte - Grande</h3>
+                    <p> Rich espresso with steamed milk and hazelnut syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/hazelnut-latte.jpg' %}" alt="Hazelnut Latte - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Hazelnut Latte - Grande">
+                        <h3> Price - ₱75.00 </h3>
+                        <input type="hidden" name="item_price" value="75.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Hazelnut Latte - Venti</h3>
+                    <p> Rich espresso with steamed milk and hazelnut syrup, served over ice. </p>
+                    <img src="{% static 'images/menu/hazelnut-latte.jpg' %}" alt="Hazelnut Latte - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Hazelnut Latte - Venti">
+                        <h3> Price - ₱85.00 </h3>
+                        <input type="hidden" name="item_price" value="85.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Caramel Macchiato - Tall</h3>
+                    <p> Espresso, steamed milk, and vanilla syrup, topped with caramel drizzle, served over ice. </p>
+                    <img src="{% static 'images/menu/caramel-macchiato.jpg' %}" alt="Caramel Macchiato - Tall">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Caramel Macchiato - Tall">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SEVENTH ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3> Caramel Macchiato - Grande</h3>
+                    <p> Espresso, steamed milk, and vanilla syrup, topped with caramel drizzle, served over ice. </p>
+                    <img src="{% static 'images/menu/caramel-macchiato.jpg' %}" alt="Caramel Macchiato - Grande">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Caramel Macchiato - Grande">
+                        <h3> Price - ₱79.00 </h3>
+                        <input type="hidden" name="item_price" value="79.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3> Caramel Macchiato - Venti</h3>
+                    <p> Espresso, steamed milk, and vanilla syrup, topped with caramel drizzle, served over ice. </p>
+                    <img src="{% static 'images/menu/caramel-macchiato.jpg' %}" alt="Caramel Macchiato - Venti">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Caramel Macchiato - Venti">
+                        <h3> Price - ₱89.00 </h3>
+                        <input type="hidden" name="item_price" value="89.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" onclick="moveCarouselOne(-1)">&#10094;</button>
+        <button class="carousel-control-next" onclick="moveCarouselOne(1)">&#10095;</button>
+    </section>
+
+    <!-- CAROUSEL START -->
+    <section class="menu carousel-container-two">
+        <h2 class="title"> Coffee-based Drinks - Hot </h2>
+        <div class="carousel-inner">
+            <!-- FIRST ROW -->
+            <div class="carousel-item active">
+                <div class="menu-col">
+                    <h3>Espresso - Grande</h3>
+                    <p>A strong and rich coffee shot.</p>
+                    <img src="{% static 'images/menu/espresso.jpg' %}" alt="Espresso">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Espresso - Grande">
+                        <h3> Price - ₱45.00 </h3>
+                        <input type="hidden" name="item_price" value="45.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Doppio - Grande</h3>
+                    <p>A double shot of rich espresso.</p>
+                    <img src="{% static 'images/menu/doppio.jpg' %}" alt="Doppio">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Doppio - Grande">
+                        <h3> Price - ₱50.00 </h3>
+                        <input type="hidden" name="item_price" value="50.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Latte - Grande</h3>
+                    <p>Smooth steamed milk with espresso.</p>
+                    <img src="{% static 'images/menu/latte.jpeg' %}" alt="Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Latte - Grande">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Latte - Venti</h3>
+                    <p>Smooth steamed milk with espresso.</p>
+                    <img src="{% static 'images/menu/latte.jpeg' %}" alt="Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Latte - Venti">
+                        <h3> Price - ₱65.00 </h3>
+                        <input type="hidden" name="item_price" value="65.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- SECOND ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3>Flat White - Grande</h3>
+                    <p>Smooth espresso with velvety steamed milk.</p>
+                    <img src="{% static 'images/menu/flat-white.jpg' %}" alt="Flat White">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Flat White - Grande">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Flat White - Venti</h3>
+                    <p>Smooth espresso with velvety steamed milk.</p>
+                    <img src="{% static 'images/menu/flat-white.jpg' %}" alt="Flat White">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Flat White - Venti">
+                        <h3> Price - ₱65.00 </h3>
+                        <input type="hidden" name="item_price" value="65.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Americano - Grande</h3>
+                    <p>Espresso with hot water for a light, flavorful coffee.</p>
+                    <img src="{% static 'images/menu/americano.jpg' %}" alt="Americano">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Americano - Grande">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Americano - Venti</h3>
+                    <p>Espresso with hot water for a light, flavorful coffee.</p>
+                    <img src="{% static 'images/menu/americano.jpg' %}" alt="Americano">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Americano - Venti">
+                        <h3> Price - ₱65.00 </h3>
+                        <input type="hidden" name="item_price" value="65.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- THIRD ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3>Capuccino - Grande</h3>
+                    <p>Espresso with steamed milk foam.</p>
+                    <img src="{% static 'images/menu/capuccino.jpg' %}" alt="Capuccino">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Capuccino - Grande">
+                        <h3> Price - ₱55.00 </h3>
+                        <input type="hidden" name="item_price" value="55.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Capuccino - Venti</h3>
+                    <p>Espresso with steamed milk foam.</p>
+                    <img src="{% static 'images/menu/capuccino.jpg' %}" alt="Capuccino">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Capuccino - Venti">
+                        <h3> Price - ₱65.00 </h3>
+                        <input type="hidden" name="item_price" value="65.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Arabica Latte - Grande</h3>
+                    <p>Rich and smooth Arabica coffee with steamed milk.</p>
+                    <img src="{% static 'images/menu/arabica-latte.jpg' %}" alt="Arabica Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Arabica Latte - Grande">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Arabica Latte - Venti</h3>
+                    <p>Rich and smooth Arabica coffee with steamed milk.</p>
+                    <img src="{% static 'images/menu/arabica-latte.jpg' %}" alt="Arabica Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Arabica Latte - Venti">
+                        <h3> Price - ₱69.00 </h3>
+                        <input type="hidden" name="item_price" value="69.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FOURTH ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3>Macadamia Latte - Grande</h3>
+                    <p>Espresso with macadamia nut flavor and steamed milk.</p>
+                    <img src="{% static 'images/menu/macadamia-latte.jpg' %}" alt="Macadamia Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Macadamia Latte - Grande">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Macadamia Latte - Venti</h3>
+                    <p>Espresso with macadamia nut flavor and steamed milk.</p>
+                    <img src="{% static 'images/menu/macadamia-latte.jpg' %}" alt="Macadamia Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Macadamia Latte - Venti">
+                        <h3> Price - ₱69.00 </h3>
+                        <input type="hidden" name="item_price" value="69.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Caramel Latte - Grande</h3>
+                    <p>Espresso with caramel flavor and steamed milk.</p>
+                    <img src="{% static 'images/menu/caramel-latte.jpg' %}" alt="Caramel Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Caramel Latte - Grande">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Caramel Latte - Venti</h3>
+                    <p>Espresso with caramel flavor and steamed milk.</p>
+                    <img src="{% static 'images/menu/caramel-latte.jpg' %}" alt="Caramel Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Caramel Latte - Venti">
+                        <h3> Price - ₱69.00 </h3>
+                        <input type="hidden" name="item_price" value="69.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FIFTH ROW -->
+            <div class="carousel-item">
+                <div class="menu-col">
+                    <h3>Butterscotch Latte - Grande</h3>
+                    <p>Espresso with butterscotch flavor and steamed milk.</p>
+                    <img src="{% static 'images/menu/butterscotch-latte.jpg' %}" alt="Butterscotch Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Butterscotch Latte - Grande">
+                        <h3> Price - ₱59.00 </h3>
+                        <input type="hidden" name="item_price" value="59.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+
+                <div class="menu-col">
+                    <h3>Butterscotch Latte - Venti</h3>
+                    <p>Espresso with butterscotch flavor and steamed milk.</p>
+                    <img src="{% static 'images/menu/butterscotch-latte.jpg' %}" alt="Butterscotch Latte">
+                    <form method="POST" action={% url 'orders:addToCart' %}>
+                        {% csrf_token %}
+                        <input type="hidden" name="item_name" value="Butterscotch Latte - Venti">
+                        <h3> Price - ₱69.00 </h3>
+                        <input type="hidden" name="item_price" value="69.00">
+                        <button class="add-to-cart-btn" type="submit">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" onclick="moveCarouselTwo(-1)"> &#10094; </button>
+        <button class="carousel-control-next" onclick="moveCarouselTwo(1)"> &#10095; </button>
+    </section>
+    <!-- CAROUSEL END -->
+
+<script src="{% static 'js/store.js' %}"> </script>
+</body>
+</html>

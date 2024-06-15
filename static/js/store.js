@@ -8,7 +8,7 @@ function hideMenu() {
     document.getElementById("navLinks").style.right = "-200px";
 }
 
-function moveCarousel(direction) {
+function moveCarouselOne(direction) {
     const carouselInner = document.querySelector('.carousel-inner');
     const totalItems = carouselInner.children.length;
     currentIndex = (currentIndex + direction + totalItems) % totalItems;

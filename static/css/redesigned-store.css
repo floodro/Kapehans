@@ -201,7 +201,7 @@ nav img {
     background-color: #735136;
 }
 
-/* Carousel Styles */
+/* Carousel One */
 
 .carousel-container {
     width: 100%;
@@ -261,6 +261,71 @@ nav img {
     }
     .carousel-control-prev,
     .carousel-control-next {
+        display: none;
+    }
+}
+
+/* Carousel Two */
+
+.carousel-container-two {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: -80px;
+}
+
+.carousel-inner-two {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item-two {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 0 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item-two .menu-col-two {
+    width: 23%; /* Four items in a row */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.carousel-control-prev-two,
+.carousel-control-next-two {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1; /* Ensure buttons are on top */
+}
+
+.carousel-control-prev-two {
+    left: 10px;
+}
+
+.carousel-control-next-two {
+    right: 10px;
+}
+
+@media (max-width: 700px) {
+    .carousel-item-two .menu-col-two {
+        width: 100%;
+    }
+    .carousel-inner-two {
+        flex-direction: column;
+    }
+    .carousel-item-two {
+        min-height: 100%;
+    }
+    .carousel-control-prev-two,
+    .carousel-control-next-two {
         display: none;
     }
 }
