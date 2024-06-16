@@ -22,16 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dq_t)vu@)83k@l)wvh1&(&n@p%ljvt!da%+-kiz1_i-jt=#(_9'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = [
-    "https://kapehans-cafe.onrender.com",
-    "localhost"    
+    "https://kapehans-cafe.onrender.com", 
 ]
-
 
 # Application definition
 
@@ -85,7 +83,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgres://kapehans_user:tmAfzGTIDmUbAbZTzaLDoqJhbniiN5FN@dpg-cpmuh808fa8c73aov580-a.singapore-postgres.render.com/kapehans',
+        default=os.environ.get('DATABASE_URL'),
         conn_max_age=600
     )
 }
